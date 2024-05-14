@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button,
+a {
+  text-decoration: none;
+  color: rgb(0, 75, 135, 1);
+}
+
+input {
+  outline: none;
+}

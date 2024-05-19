@@ -1,9 +1,13 @@
 import React from "react";
 
-const Card = ({ title, children, icon, color }) => {
+const Card = ({ title, children, icon, color, style }) => {
   return (
     <div
-      className="w-full flex flex-col text-center h-auto bottom-5 px-4 py-6 items-center hover:shadow-lg hover:scale-105"
+      className={
+        style
+          ? style
+          : "w-full flex flex-col text-center h-auto bottom-5 px-4 py-6 items-center hover:shadow-lg hover:scale-105"
+      }
       style={{ backgroundColor: color }}
     >
       <div className="items-center flex justify-center">
@@ -16,4 +20,18 @@ const Card = ({ title, children, icon, color }) => {
   );
 };
 
-export { Card };
+const CardShadow = ({ children, className }) => {
+  return (
+    <div
+      className={
+        className
+          ? className
+          : "w-full flex flex-col text-center h-auto bottom-5 px-4 py-6 items-center hover:shadow-lg"
+      }
+    >
+      {children}
+    </div>
+  );
+};
+
+export { Card, CardShadow };

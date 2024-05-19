@@ -10,9 +10,11 @@ import LOGO_HERO from "../../assets/img/1.jpg";
 import BG_SECTION from "../../assets/img/Rectangle6.png";
 import { Sections } from "../../components/sections/Sections";
 import { Footer } from "../../components/footers/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   const items = [
     {
@@ -50,6 +52,7 @@ const Home = () => {
             <img src={LOGO_FAQ} className="h-auto w-15" />
             <Button
               text={"Preguntas Frecuentes"}
+              onClick={() => navigate("/help")}
               style={
                 "w-full bg-transparent rounded-lg border-2 border-white text-white my-10 hover:bg-white hover:text-black px-4 py-2"
               }
@@ -60,6 +63,7 @@ const Home = () => {
             <img src={LOGO_YOUTUBE} className="h-auto w-15" />
 
             <Button
+              onClick={() => navigate("/tutorials")}
               text={"Tutoriales"}
               style={
                 "w-full bg-transparent rounded-lg border-2 border-white text-white my-10 hover:bg-white hover:text-black px-4 py-2"
@@ -81,6 +85,7 @@ const Home = () => {
 
             <Button
               text={"Acerca de"}
+              onClick={() => navigate("/about")}
               style={
                 "w-full bg-transparent rounded-lg border-2 border-white text-white my-10 hover:bg-white hover:text-black px-4 py-2"
               }
@@ -92,6 +97,7 @@ const Home = () => {
           {SectionsContent.map((section, index) => (
             <Sections
               key={index}
+              onClick={section.onClick}
               title={section.title}
               text={section.text}
               image={section.image}

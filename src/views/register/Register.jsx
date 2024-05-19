@@ -3,9 +3,15 @@ import Modal from "../../components/modals/Modals";
 import { Button, ButtonWithIcon } from "../../components/buttons/Buttons";
 import { Input } from "../../components/input/Input";
 
-const Register = () => {
+const Register = ({ open, setOpen }) => {
   const renderItems = () => (
-    <div className="w-full flex flex-col text-center ">
+    <div className="w-full flex flex-col text-center">
+      <div
+        className="text-white text-right hover:cursor-pointer hover:text-gray-500"
+        onClick={() => setOpen(!open)}
+      >
+        X
+      </div>
       <div className="items-center flex justify-center">
         <img
           className="w-40"
@@ -48,7 +54,7 @@ const Register = () => {
     </div>
   );
 
-  return <Modal isOpen={false}>{renderItems()}</Modal>;
+  return <Modal isOpen={open}>{renderItems()}</Modal>;
 };
 
 export default Register;

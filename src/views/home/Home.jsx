@@ -11,19 +11,27 @@ import BG_SECTION from "../../assets/img/Rectangle6.png";
 import { Sections } from "../../components/sections/Sections";
 import { Footer } from "../../components/footers/Footer";
 import { useNavigate } from "react-router-dom";
+import Register from "../register/Register";
+import Login from "../login/Login";
 
 const Home = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModalLogin, setOpenModalLogin] = useState(false);
+  const [openModalRegister, setOpenModalRegister] = useState(false);
   const navigate = useNavigate();
 
   const items = [
     {
       title: "Inicio",
       click: () => {
-        setOpenModal(!openModal);
+        navigate("/");
       },
     },
-    { title: "Iniciar Sesion" },
+    {
+      title: "Iniciar Sesion",
+      click: () => {
+        setOpenModalLogin(!openModalLogin);
+      },
+    },
   ];
 
   const SectionsContent = [
@@ -74,6 +82,7 @@ const Home = () => {
             <img src={LOGO_REGISTER} className="h-auto w-15" />
 
             <Button
+              onClick={() => setOpenModalRegister(!openModalRegister)}
               text={"Registrarse"}
               style={
                 "w-full bg-transparent rounded-lg border-2 border-white text-white my-10 hover:bg-white hover:text-black px-4 py-2"
@@ -111,6 +120,13 @@ const Home = () => {
           }
         />
       </main>
+
+      {openModalRegister && (
+        <Register setOpen={setOpenModalRegister} open={openModalRegister} />
+      )}
+      {openModalLogin && (
+        <Login setOpen={setOpenModalLogin} open={openModalLogin} />
+      )}
     </div>
   );
 };

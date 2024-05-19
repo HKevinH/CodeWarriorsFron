@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import HeaderBar from "../../components/headers/Header";
 import { Card } from "../../components/card/Card";
 import { Button } from "../../components/buttons/Buttons";
@@ -12,11 +12,13 @@ import { Sections } from "../../components/sections/Sections";
 import { Footer } from "../../components/footers/Footer";
 
 const Home = () => {
+  const [openModal, setOpenModal] = useState(false);
+
   const items = [
     {
       title: "Inicio",
       click: () => {
-        window.location.href = "/home";
+        setOpenModal(!openModal);
       },
     },
     { title: "Iniciar Sesion" },
@@ -38,7 +40,10 @@ const Home = () => {
       <HeaderBar items={items} />
       <main className="overflow-hidden">
         <header className="w-full">
-          {/* <img src={LOGO_HERO} className="object-cover" /> */}
+          <img
+            src={LOGO_HERO}
+            className="w-full xl:w-full xl:h-[400px] object-contain"
+          />
         </header>
         <div className="w-full lg:flex lg:flex-row gap-0 items-center sm:grid-cols-2 sm:grid-rows-2 sm:grid">
           <Card title={""} color={"#61CE70"}>
@@ -96,7 +101,7 @@ const Home = () => {
         <Footer
           title="Programacion Competitiva"
           text={
-            "Institución de Educación Superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional. Personería jurídica otorgada por el Ministerio de Justicia mediante la Resolución No. 2.800 del 02 de septiembre de 1959. Reconocida como Universidad por el Decreto No. 1297 de 1964 emanado del Ministerio de Educación Nacional."
+            "Institución de Educación Superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.Personería jurídica otorgada por el Ministerio de Justicia mediante la Resolución No. 2.800 del 02 de septiembre de 1959.Reconocida como Universidad por el Decreto No. 1297 de 1964 emanado del Ministerio de Educación Nacional."
           }
         />
       </main>

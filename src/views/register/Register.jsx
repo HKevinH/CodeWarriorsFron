@@ -2,8 +2,10 @@ import React from "react";
 import Modal from "../../components/modals/Modals";
 import { Button, ButtonWithIcon } from "../../components/buttons/Buttons";
 import { Input } from "../../components/input/Input";
+import useAuth from "../../hooks/useAuth";
 
 const Register = ({ open, setOpen }) => {
+  const { registerAuthGithub } = useAuth();
   const renderItems = () => (
     <div className="w-full flex flex-col text-center">
       <div
@@ -44,6 +46,7 @@ const Register = ({ open, setOpen }) => {
       <div className="w-full flex flex-col gap-2">
         <ButtonWithIcon
           text={"Registrarse Con Github"}
+          onClick={() => registerAuthGithub()}
           iconName={"fab fa-github"}
         />
         <ButtonWithIcon

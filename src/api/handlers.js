@@ -5,14 +5,13 @@ const instance = axios.create({
   headers: {
     "Content-Type": "application/json",
     "Cross-Origin": "*",
+    "Access-Control-Allow-Origin": "*",
+    "Acess-Control-Allow-Methods": "*",
   },
 });
 
 const get = async (url) => {
-  console.log(instance.get(url), "instance");
   const response = await instance.get(url);
-  console.log(instance, "response");
-  console.log(response, "response");
   return response.data;
 };
 
@@ -31,4 +30,10 @@ const remove = async (url) => {
   return response.data;
 };
 
-export { get, post, put, remove };
+const getAuthUrl = async (provider) => {
+  const response = await instance.get(`/oauth2/authorization/${provider}`);
+  console.log(response, "response");
+  return response.data.url;
+};
+
+export { get, post, put, remove, getAuthUrl };

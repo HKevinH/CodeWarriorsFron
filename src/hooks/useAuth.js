@@ -1,8 +1,9 @@
-import { getAuthUrl } from "../api/handlers";
+import { get } from "../api/handlers";
+import { registerWithGithub } from "../api/handlersUsers";
 
 const useAuth = () => {
   const registerAuthGithub = async () => {
-    const url = await getAuthUrl("github");
+    const url = await registerWithGithub();
     try {
       const popupWindow = window.open(
         `${url}`,

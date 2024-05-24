@@ -49,10 +49,14 @@ const Home = () => {
     <div className="">
       <HeaderBar items={items} />
       <main className="overflow-hidden">
-        <header className="w-full">
+        <header className="w-full gap-0 flex grid-cols-2">
           <img
             src={LOGO_HERO}
-            className="w-full xl:w-full xl:h-[400px] object-contain"
+            className="w-1/2 h-[50%] hover:scale-105 transition-all duration-300 ease-out"
+          />
+          <img
+            src={LOGO_HERO}
+            className="w-1/2 h-[50%]  scale-x-[-1] transition-all duration-300 ease-out"
           />
         </header>
         <div className="w-full lg:flex lg:flex-row gap-0 items-center sm:grid-cols-2 sm:grid-rows-2 sm:grid">

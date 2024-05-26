@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import HeaderBar from "../../components/headers/Header";
 import { Footer } from "../../components/footers/Footer";
 import { CardShadow } from "../../components/card/Card";
@@ -10,6 +10,14 @@ const Help = () => {
   const navigate = useNavigate();
   //#region
 
+  const handleFilter = (e) => {
+    const value = e.target.value;
+    const filter = itemsAbouts.filter((item) => {
+      return item.title.toLowerCase().includes(value.toLowerCase());
+    });
+
+    setFilterItems(filter);
+  };
   const itemsHeader = [
     {
       title: "Inicio",
@@ -48,6 +56,9 @@ const Help = () => {
         "Para registrarte en USC - Code Warriors, debes ser estudiante de la Universidad Santiago de Cali y tener una cuenta de correo institucional. Luego, puedes acceder a la plataforma con tus credenciales de estudiante y comenzar a participar en los retos de programación.",
     },
   ];
+
+  const [filterItems, setFilterItems] = useState(itemsAbouts);
+
   //#endregion
   return (
     <div className="">
@@ -62,12 +73,19 @@ const Help = () => {
             <div className="w-2/4">
               <CardShadow
                 className={
-                  "w-full flex flex-col h-full shadow-2xl rounded-xl p-8"
+                  "w-full flex flex-col h-full shadow-2xl rounded-xl p-8 relative"
                 }
               >
-                <h1 className="text-3xl font-bold text-blue-color py-8">FAQ</h1>
+                <input
+                  className="rounded-lg w-1/2 h-10 shadow-xl border-gray-300 p-4 absolute top-5 right-5 mb-3"
+                  placeholder="Busca una pregunta..."
+                  onChange={handleFilter}
+                />
+                <h1 className="text-3xl font-bold text-blue-color py-10">
+                  FAQ
+                </h1>
                 <div>
-                  {itemsAbouts.map((item, index) => {
+                  {filterItems.map((item, index) => {
                     return (
                       <Accordion
                         key={index}

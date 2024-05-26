@@ -3,7 +3,8 @@ import { registerWithGithub } from "../api/handlersUsers";
 
 const useAuth = () => {
   const registerAuthGithub = async () => {
-    const url = await registerWithGithub();
+    const url = `http://localhost:8080/oauth2/authorization/github`;
+    console.log(url, "url");
     try {
       const popupWindow = window.open(
         `${url}`,

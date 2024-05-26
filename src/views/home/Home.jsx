@@ -53,10 +53,12 @@ const Home = () => {
           <img
             src={LOGO_HERO}
             className="w-1/2 h-[50%] hover:scale-105 transition-all duration-300 ease-out"
+            alt="Hero Image"
           />
           <img
             src={LOGO_HERO}
-            className="w-1/2 h-[50%]  scale-x-[-1] transition-all duration-300 ease-out"
+            className="w-1/2 h-1/2 transition-transform duration-300 ease-out scale-x-[-1] hover:scale-x-[-1] hover:scale-105"
+            alt="Hero Image"
           />
         </header>
         <div className="w-full lg:flex lg:flex-row gap-0 items-center sm:grid-cols-2 sm:grid-rows-2 sm:grid">

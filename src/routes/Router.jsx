@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     element: <Help />,
   },
   {
-    path: COMPLETE_REGISTER,
+    path: "/complete-registration",
     element: <CompleteRegister />,
   },
 ]);

@@ -1,21 +1,7 @@
-import { get } from "../api/handlers";
-import { registerWithGithub } from "../api/handlersUsers";
-
 const useAuth = () => {
   const registerAuthGithub = async () => {
     const url = `http://localhost:8080/oauth2/authorization/github`;
-    console.log(url, "url");
-    try {
-      const popupWindow = window.open(
-        `${url}`,
-        "oauthPopup",
-        "width=600,height=600"
-      );
-
-      return popupWindow;
-    } catch (error) {
-      console.log(error, "error");
-    }
+    window.location.href = url;
   };
 
   const registerWithEmailAndPassword = () => {

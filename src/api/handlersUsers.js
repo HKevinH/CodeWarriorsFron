@@ -1,11 +1,7 @@
-import { get, post } from "./handlers";
+import { get } from "./handlers";
 
 const getUsers = async () => await get("/getAllUsers");
 
-const registerWithGoogle = async (data) =>
-  await post("/oauth2/authorization/google", data);
+const getUserComplete = async () => await get("/complete-registration");
 
-const registerWithGithub = async () =>
-  await get("/oauth2/authorization/github");
-
-export { getUsers, registerWithGoogle, registerWithGithub };
+export { getUsers, getUserComplete };

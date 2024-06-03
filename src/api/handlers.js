@@ -8,8 +8,8 @@ const instance = axios.create({
   },
 });
 
-const get = async (url) => {
-  const response = await instance.get(url);
+const get = async (url, data) => {
+  const response = await instance.get(url, data);
   return response.data;
 };
 

@@ -4,8 +4,9 @@ import { Button, ButtonWithIcon } from "../../components/buttons/Buttons";
 import { Input } from "../../components/input/Input";
 import useAuth from "../../hooks/useAuth";
 
+// eslint-disable-next-line react/prop-types
 const Register = ({ open, setOpen }) => {
-  const { registerAuthGithub } = useAuth();
+  const { registerAuthGithub, registerAuthGoogle } = useAuth();
   const renderItems = () => (
     <div className="w-full flex flex-col text-center">
       <div
@@ -52,6 +53,7 @@ const Register = ({ open, setOpen }) => {
         <ButtonWithIcon
           text={"Registrarse Con Google"}
           iconName={"fa-brands fa-google"}
+          onClick={() => registerAuthGoogle()}
         />
       </div>
     </div>

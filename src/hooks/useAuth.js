@@ -1,15 +1,17 @@
 const useAuth = () => {
+  const url = (provider) =>
+    (window.location.href = `http://localhost:8080/oauth2/authorization/${provider}`);
+
   const registerAuthGithub = async () => {
-    const url = `http://localhost:8080/oauth2/authorization/github`;
-    window.location.href = url;
+    url("github");
   };
 
   const registerWithEmailAndPassword = () => {
     console.log("Registrarse con Email y Contraseña");
   };
 
-  const registerAuthGoogle = () => {
-    console.log("Registrarse con Google");
+  const registerAuthGoogle = async () => {
+    url("google");
   };
   return {
     registerAuthGoogle,

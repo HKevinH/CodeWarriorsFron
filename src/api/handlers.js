@@ -13,8 +13,8 @@ const get = async (url, data) => {
   return response.data;
 };
 
-const post = async (url, data) => {
-  const response = await instance.post(url, data);
+const post = async (url, data, options = {}) => {
+  const response = await instance.post(url, data, options);
   return response.data;
 };
 

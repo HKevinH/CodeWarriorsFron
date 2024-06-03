@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../views/home/Home";
 import About from "../views/about/About";
 import Help from "../views/help/Help";
-import { COMPLETE_REGISTER } from "./routes";
 import CompleteRegister from "../views/register/CompleteRegister";
 
 const router = createBrowserRouter([
@@ -28,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/complete-registration",
     element: <CompleteRegister />,
+  },
+  {
+    path: "/dashboard",
+    element: <div>Dashboard</div>,
   },
 ]);
 

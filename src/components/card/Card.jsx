@@ -38,4 +38,8 @@ const CardContent = ({ children }) => {
   return <div className=" bg-gray-100 mb-5 rounded-2xl">{children}</div>;
 };
 
+const CardHeight = ({ children }) => {
+  return <div className="h-full">{children}</div>;
+};
+
 export { Card, CardShadow, CardContent };

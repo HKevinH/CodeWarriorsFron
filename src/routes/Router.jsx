@@ -4,6 +4,7 @@ import About from "../views/about/About";
 import Help from "../views/help/Help";
 import CompleteRegister from "../views/register/CompleteRegister";
 import Dashboard from "../views/dashboard/Dashboard";
+import Tutorials from "../views/tutorials/Tutorials";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/tutorials",
+    element: <Tutorials />,
   },
 ]);
 

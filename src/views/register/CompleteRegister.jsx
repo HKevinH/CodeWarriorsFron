@@ -40,7 +40,7 @@ const CompleteRegister = () => {
       setSubmitting(true);
       if (res == "OK") {
         setIsLoad(!isLoad);
-        navigate("/dashboard");
+        navigate("/dashboard", { data: dataUser });
       }
     } catch (error) {
       console.error(error);

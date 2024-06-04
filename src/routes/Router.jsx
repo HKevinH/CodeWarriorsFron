@@ -3,6 +3,7 @@ import Home from "../views/home/Home";
 import About from "../views/about/About";
 import Help from "../views/help/Help";
 import CompleteRegister from "../views/register/CompleteRegister";
+import Dashboard from "../views/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <div>Dashboard</div>,
+    element: <Dashboard />,
   },
 ]);
 

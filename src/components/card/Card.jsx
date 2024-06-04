@@ -34,4 +34,8 @@ const CardShadow = ({ children, className }) => {
   );
 };
 
-export { Card, CardShadow };
+const CardContent = ({ children }) => {
+  return <div className=" bg-gray-100 mb-5 rounded-2xl">{children}</div>;
+};
+
+export { Card, CardShadow, CardContent };

@@ -5,6 +5,8 @@ import Help from "../views/help/Help";
 import CompleteRegister from "../views/register/CompleteRegister";
 import Dashboard from "../views/dashboard/Dashboard";
 import Tutorials from "../views/tutorials/Tutorials";
+import Exercises from "../views/exercises/Exercises";
+import Problem from "../views/problem/Problem";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
   {
     path: "/tutorials",
     element: <Tutorials />,
+  },
+  {
+    path: "/exercises",
+    element: <Exercises />,
+  },
+  {
+    path: "/problem/:id",
+    element: <Problem />,
   },
 ]);
 

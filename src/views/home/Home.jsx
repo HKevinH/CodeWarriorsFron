@@ -7,44 +7,45 @@ import LOGO_YOUTUBE from "../../assets/img/YoutubeTutorials.png";
 import LOGO_REGISTER from "../../assets/img/AddUserMale.png";
 import LOGO_ABOUT from "../../assets/img/InfoSquared.png";
 import LOGO_HERO from "../../assets/img/1.jpg";
-import BG_SECTION from "../../assets/img/Rectangle6.png";
+
 import { Sections } from "../../components/sections/Sections";
 import { Footer } from "../../components/footers/Footer";
 import { useNavigate } from "react-router-dom";
 import Register from "../register/Register";
 import Login from "../login/Login";
+import { useAuthStore } from "../../store/authStore";
+import { SectionsContent } from "../../codes/Constans";
 
 const Home = () => {
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [openModalRegister, setOpenModalRegister] = useState(false);
   const navigate = useNavigate();
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
 
   const items = [
     {
-      title: "Inicio",
+      title: user ? "Perfil" : "Preguntas Frecuentes",
       click: () => {
-        navigate("/");
+        if (user) {
+          navigate("/dashboard", { state: { data: user } });
+        } else {
+          navigate("/help");
+        }
       },
     },
     {
-      title: "Iniciar Sesion",
+      title: user ? "Cerrar Sesión" : "Iniciar Sesión",
       click: () => {
-        setOpenModalLogin(!openModalLogin);
+        if (user) {
+          logout();
+        } else {
+          setOpenModalLogin(!openModalLogin);
+        }
       },
     },
   ];
 
-  const SectionsContent = [
-    {
-      title: "USC-CodeWarriors",
-      text: "La Universidad Santiago de Cali lanza USC-CodeWarriors, una iniciativa para fortalecer la lógica y eficiencia de programación de los estudiantes mediante retos prácticos y aprendizaje colaborativo.",
-      image: BG_SECTION,
-    },
-    {
-      title: "Que es USC - Code Warriors?",
-      text: "USC- CodeWarriors es una plataforma concebida para ser usada en la practica de la programacion competitva dentro del campus de la Universidad Santiago de Cali, esto conel fin de mejorar las habilidades de programacion de nuestros estudiantes y su eficiencia en entornos de competiticon ya sea a nivel universidad o en competencias a nivel nacional.",
-    },
-  ];
   return (
     <div className="">
       <HeaderBar items={items} />
@@ -110,8 +111,10 @@ const Home = () => {
 
         <div className="p-10 bottom-10 flex-col gap-5">
           {SectionsContent.map((section, index) => (
+            // eslint-disable-next-line react/jsx-key
             <Sections
               key={index}
+              index={index}
               onClick={section.onClick}
               title={section.title}
               text={section.text}
@@ -126,7 +129,6 @@ const Home = () => {
           }
         />
       </main>
-
       {openModalRegister && (
         <Register setOpen={setOpenModalRegister} open={openModalRegister} />
       )}

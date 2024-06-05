@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import LOGO from "../../assets/img/logousc.png";
 import * as Yup from "yup";
 import { Loaders } from "../../components/loaders/Loaders";
-import { data } from "autoprefixer";
 
 const CompleteRegister = () => {
   const [showPassword, setShowPassword] = useState(false);

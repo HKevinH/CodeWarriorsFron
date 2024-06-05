@@ -1,9 +1,9 @@
 import React from "react";
 
-const Sections = ({ text, image, icon, title, key, onClick }) => {
+const Sections = ({ text, image, title, index, onClick }) => {
   return (
     <div
-      key={key}
+      key={index}
       className="w-full flex-col justify-around my-3 text-center"
       onClick={onClick}
     >

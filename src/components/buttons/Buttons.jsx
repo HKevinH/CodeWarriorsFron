@@ -22,11 +22,12 @@ const ButtonWithIcon = ({ text, iconName, onClick, style }) => {
   );
 };
 
-const Button = ({ onClick, text, style }) => {
+const Button = ({ onClick, text, style, type, disabled }) => {
   return (
     <button
-      onClick={onClick}
-      type="button"
+      disabled={disabled}
+      onClick={type === "submit" ? null : onClick}
+      type={type ? type : "button"}
       className={
         style
           ? style

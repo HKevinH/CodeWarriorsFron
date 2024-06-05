@@ -1,6 +1,5 @@
-import React from "react";
 import HeaderBar from "../../components/headers/Header";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Tables } from "../../components/tables/Tables";
 import { Avatar } from "../../components/avatar/Avatar";
 import { CardContent } from "../../components/card/Card";
@@ -15,6 +14,12 @@ const Dashboard = () => {
   const location = useLocation();
   const { data } = location.state;
   const items = [
+    {
+      title: "Ejercicios",
+      click: () => {
+        navigate("/exercises");
+      },
+    },
     {
       title: "Preguntas Frecuentes",
       click: () => {
